@@ -1,0 +1,7 @@
+tensorflow==2.18.0
+scikit-learn==1.6.0
+seaborn==0.13.2
+streamlit==1.41.1
+numpy==2.0.2
+opencv-contrib-python==4.10.0.84
+pandas==2.2.3
