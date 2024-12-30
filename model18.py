@@ -57,7 +57,7 @@ elif app_mode == "Disease prediction":
             st.error("Failed to capture the image.")
 
         cam.release()
-        cv2.destroyAllWindows()
+
 
     # Prediction
     if st.button("Predict"):
