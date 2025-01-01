@@ -10,19 +10,22 @@ import os
 def download_model():
     url = "https://drive.google.com/file/d/1p794KAUhSTdTc5jqkyuzfXXyM3Ho7jvZ/view?usp=sharing"  # Replace YOUR_FILE_ID with the actual ID
     
-    output = "trained_model.h5"
-    if not os.path.exists(output):
+    model_path = "trained_model.h5"
+    if not os.path.exists(model_path):
         with st.spinner("Downloading the model... This may take a few minutes."):
-            gdown.download(url, output, quiet=False)
+            gdown.download(url, model_path, quiet=False)
     else:
         raise FileNotFoundError(f"Model file not found at {model_path}")
-    print('------------------',output)
-    return output
+    print('------------------',model_path)
+    return model_path
 
 # Load the model
-model_path = download_model()
-model = tf.keras.models.load_model(model_path)
-
+try:
+    model_path = download_model()  # Download the model
+    model = tf.keras.models.load_model(model_path)  # Load the model
+    st.success("Model loaded successfully!")
+except Exception as e:
+    st.error(f"An error occurred: {e}")
 # Prediction function
 def model_prediction(test_image):
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128), color_mode="rgb")
