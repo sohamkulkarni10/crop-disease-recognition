@@ -14,6 +14,9 @@ def download_model():
     if not os.path.exists(output):
         with st.spinner("Downloading the model... This may take a few minutes."):
             gdown.download(url, output, quiet=False)
+    else:
+        raise FileNotFoundError(f"Model file not found at {model_path}")
+    print('------------------',output)
     return output
 
 # Load the model
