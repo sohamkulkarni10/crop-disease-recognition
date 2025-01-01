@@ -8,7 +8,7 @@ import os
 
 # Function to download the model from Google Drive
 def download_model():
-    url = "https://drive.google.com/file/d/1p794KAUhSTdTc5jqkyuzfXXyM3Ho7jvZ/view?usp=sharing"  # Replace YOUR_FILE_ID with the actual ID
+    url = "https://drive.google.com/uc?id=1p794KAUhSTdTc5jqkyuzfXXyM3Ho7jvZ" # Replace YOUR_FILE_ID with the actual ID
     
     model_path = "trained_model.h5"
     if not os.path.exists(model_path):
